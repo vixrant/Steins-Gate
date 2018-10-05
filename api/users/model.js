@@ -15,14 +15,18 @@ const userSchema = new mongoose.Schema({
 	},
 	password: String,
 
+	status: {
+		type: Number,
+		min: 0,
+		max: 12
+	},
+
 	profile: {
 		name: String,
 		dateOfBirth: { type: Date, default: new Date (), },
 		joinYear: { type: Number, default: new Date().getFullYear(), },
 		department: String,
 	},
-
-	
 });
 
 /**

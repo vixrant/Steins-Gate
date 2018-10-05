@@ -8,7 +8,7 @@ const subjectSchema = new Schema({
 		unique: true,
 		sparse: true,
 	},
-	faculty: [{
+	faculty: [{	
 		type: Schema.Types.ObjectId
 	}],
 	year: {

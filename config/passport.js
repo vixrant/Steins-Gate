@@ -88,26 +88,34 @@ passport.use(new JWTStrategy(jwtOptions,
  */
 const isAuthenticated = (req, res, next) => {
 	if (req.isAuthenticated()) return next();
-	else res.json({
-		error: 'Unauthenticated'
-	}).status(403);
+	else res.status(403).json({
+		status: 'Unauthenticated'
+	});
+};
+
+/**
+ * Adds status attribute to the request.
+ */
+const addStatusLimitation = (status) => (req, res, next) => {
+	req.level = status;
+	next();
 };
 
 /**
  * Authorization Required middleware.
  */
 const isAuthorized = (req, res, next) => {
-	const provider = req.path.split('/').slice(-1)[0];
-	const token = req.user.tokens.find(token => token.kind === provider);
-	if (token) {
-		next();
-	} else {
-		res.redirect(`/auth/${provider}`);
-	}
+	if (!req.isAuthenticated()) return res.status(403).json({ status: 'NOT AUTHENTICATED' });
+	
+	const user = req.user;
+	if (req.level < user.status) return res.status(403).json({ status: 'NOT AUTHORIZED' });
+
+	next();
 };
 
 // * EXPORTS
 module.exports = {
 	isAuthenticated,
-	isAuthorized
+	addStatusLimitation,
+	isAuthorized,
 };
