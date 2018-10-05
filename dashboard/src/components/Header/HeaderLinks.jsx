@@ -21,6 +21,8 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
 
+import { getWorking } from "../../variables/client";
+
 class HeaderLinks extends React.Component {
   state = {
     open: false
@@ -137,7 +139,13 @@ class HeaderLinks extends React.Component {
           </Hidden>
         </Button>
 
-        <Button color="white" aria-label="edit" justIcon round>
+        <Button
+          color="white"
+          aria-label="edit"
+          onClick={_ => getWorking()}
+          justIcon
+          round
+        >
           <AddIcon />
         </Button>
       </div>
