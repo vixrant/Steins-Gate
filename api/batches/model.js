@@ -8,10 +8,10 @@ const batchSchema = new Schema({
 		unique: true,
 		sparse: true,
 	},
-	students: [{
+	department: {
 		type: Schema.Types.ObjectId,
-		ref: 'User',
-	}]
+		ref: 'Department'
+	},
 });
 
 const Batch = mongoose.model('Batch', batchSchema);

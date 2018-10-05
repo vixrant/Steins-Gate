@@ -1,7 +1,7 @@
 const { Batch } = require('./model');
 
 // ? post /batches/
-exports.postBatches = function postBatches (req, res) {
+exports.postOne = function postOne (req, res) {
 	let btch = new Batch(req.body);
 	btch.save((err) => {
 		if (err) return res.status(500).json(err);
@@ -10,10 +10,10 @@ exports.postBatches = function postBatches (req, res) {
 };
 
 // ? get /batches/
-exports.getBatches = function getBatches (req, res) {
+exports.getList = function getList (req, res) {
 	Batch.find({})
-		.populate('batches')
-		.populate('faculty')
+		.populate('students')
+		.populate('department', '-batches')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
 			return res.json(list);
@@ -21,27 +21,35 @@ exports.getBatches = function getBatches (req, res) {
 };
 
 // ? get /batches/:id
-exports.getBatchesSingle = function getBatchesSingle (req, res) {
-	Batch.findById(req.params.id)
-		.populate('batches')
-		.populate('faculty')
+exports.getOne = function getOne (req, res) {
+	const id = req.params.id;
+	Batch.findById(id)
+		.populate('students')
+		.populate('department', '-batches')
 		.exec((err, btch) => {
-			if (err) return res.status(500).json(err);
-			if (!btch) return res.status(404).json({status: 'NOT FOUND'});
-			return res.json ();
+			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (!btch || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
+			return res.json (btch);
 		});
 };
 
 // ? put /batches/:id
-exports.putBatchesSingle = function putBatchesSingle (req, res) {
-	let btch = null;
-	Batch.findById(req.params.id);
+exports.putOne = function putOne (req, res) {
+	const btch = req.body;
+	const id = req.params.id;
+	Batch.findByIdAndUpdate(id, btch)
+		.exec((err, old) => {
+			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (!old || (err && err.name == 'CastError')) return res.status(404).json({ status: 'NOT FOUND' });
+			return res.json(old);
+		});
 };
 
 // ? delete /batches/:id
-exports.deleteBatchesSingle = function deleteBatchesSingle (req, res) {
+exports.deleteOne = function deleteOne (req, res) {
 	Batch.findOneAndDelete(req.id).exec((err, btch) => {
-		if (err) return res.status(500).err(btch);
+		if (err && err.name !== 'CastError') return res.status(500).json(err);
+		if (!btch || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
 		return res.json({
 			status: 'OK',
 			deleted: btch

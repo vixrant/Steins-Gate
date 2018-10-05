@@ -8,10 +8,6 @@ const departmentSchema = new Schema({
 		unique: true,
 		sparse: true,
 	},
-	batches: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Batch',
-	}],
 	faculty: [{
 		type: Schema.Types.ObjectId
 	}],

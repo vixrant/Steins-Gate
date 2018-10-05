@@ -11,7 +11,10 @@ const subjectSchema = new Schema({
 	faculty: [{
 		type: Schema.Types.ObjectId
 	}],
-	year: Date,
+	year: {
+		type: Number,
+		min: [1950, 'Too old!'],
+	},
 });
 
 const Subject = mongoose.model('Subject', subjectSchema);

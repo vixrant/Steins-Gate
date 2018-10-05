@@ -3,9 +3,10 @@ const router = express.Router();
 
 const controller = require('./controller');
 
-router.post('/', controller.postBatches);
-router.get('/', controller.getBatches);
-router.get('/:id', controller.getBatchesSingle);
-router.delete('/:id', controller.deleteBatchesSingle);
+router.post('/', controller.postOne);
+router.get('/', controller.getList);
+router.get('/:id', controller.getOne);
+router.put('/:id', controller.putOne);
+router.delete('/:id', controller.deleteOne);
 
 module.exports = router;
