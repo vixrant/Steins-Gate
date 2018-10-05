@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cryvis-slink",
+  "private_key_id": "1aa538064a5471ea8d64f803edf3e5f44ad5553f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDCFb38K4Qaq33s\ntgVRHaAsMyHZy4KO+aaO6A9TH1SysOZ3pW5Mx1v2oX2rQY4EKsXlzwyDj3dBoKqE\nkdQCUy6XO8uaCjAdrmyL9jOZgw4lsv/+/nTtJTJbyaiImd8FIiE/4S+cI50ahZsk\nL0GiFaB2f8UqvOXKWspi3+3gb9FLc0PJj84S4rQ0TJnkPx4QVpkgVYbjnHGPEOLY\ntCUebP6iVGr0O3p0W1NiFawoC5B9MUgmje9No+JcejWMfgLtP+dIP5Om4Wm7pNk8\n2ByP9/1Cfp5MJOTW9sOfQtBZEwRHXp55/+c0BMJ4L9gFs23sZybrl6FrtaJ/uCPN\nMyd+ngR9AgMBAAECggEAKtZjrYHpUX2ieJmgSMwSK09J3Glnsqj1kzszDrSunBYh\neC0CUF38NU5lj2QTtWW/cj6l02/Z8ZlFqacKNU0ozmZ7RM+U2ShDewznTK25dKay\njBSbuC/qkonK8gOMTvS+g/vu5zaRGWZ93Jm1kdHWLfF7kjhJO8WYQASO22eyuUUg\nPcmAH3Wl5nXEguU+GYP9J2+uPDbp9zDdyEqkGbQGgW4h0WeVo3LSc9LVFxeK7jLu\niLTgfUF+nKKUQqIzoKadBOkNf3q3B6Ybd7K9KvgvQbLh8tiXaZJsoGQX1ELHqZhU\nB/5vOiSOe53WH42mM73w3hSejKGwyn0FKvQY/eDXnQKBgQDgZDvWvlgus6DhBeZX\n2lYRLzfrPVt1H05pBdawqzjRyXh5fOfuRHUntvfLgb3RGRQjc+72MqP5TTxa42mx\n1S+y96ChwfuSjMCkS7DF7dOIA55rd4vs1ClyL7hvWqqd0DBAcqOg4vHGFXBVwbob\nNM0NLhZYzz91n70Yvr599tGoOwKBgQDdbJ/EjkIK0aT/WPZNo7WxRs/QWwkBJHC/\nWx0W7aK2Z53j2NEhjoWGLoS9PMudWEtJVrnsaeoyifSWM4WUIt9YqDljHaa0AtI9\ny11xd/HEaQwhhtdU4vdmckVe88c+nvdVXmh7eI/ea45UvVmfJcBIJMyKp7+mQvfh\noEyhbN1ypwKBgCcvufd9lD7LpdvGQPy0p3UmztgpBfDFP9c9asm9jRWt3nkw4/wL\nPn5qCIokpTZ/77FlTKT4IQSnhVPGBS5GMadKcWXuT3W/WOEYSs22A8vr/d18qhX4\n0ygax1XC+qrGsbZ/jq3JFDnogo6nX03jAbA8jTCDOOzcsZRBs1iiIukDAoGAVO2i\nBjEOUboBkFNd/X+KZBmmAeO4+3AvsqXO7YluPIpXvBngdP+GZWYYUcEs1AgWsGWM\nYIprYsEZSDcwyBXsFsRHZqXr1+WxIDSNfcUkvVIRbhabJxr7C5dO1lGonXM5qMvS\nRXGDtSsJ56TM6EcBjmpW7ePTlYDgNPFYEx5/fccCgYEAy3qXS8Tke16E1+FWoaxW\nZ+s3LUnsOKHNBm0GtKiuX1+77Qdkd9Q06RxYAeuLoztTh6fkoOFCRGLEcKptnvqA\nyGuDrFba5Me14Yf5eU/1N13OvVlsRecuvb3FEsIvd1vPc9M6lHxtVHWf30usiYTN\nbto+/EClGLadvLhIHwKiHnc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tsec-sentiment-analysis@cryvis-slink.iam.gserviceaccount.com",
+  "client_id": "104148640360879843677",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tsec-sentiment-analysis%40cryvis-slink.iam.gserviceaccount.com"
+}
