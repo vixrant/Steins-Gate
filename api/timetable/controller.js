@@ -12,8 +12,7 @@ exports.postOne = function postOne (req, res) {
 // ? get /slots/
 exports.getList = function getList (req, res) {
 	Slot.find({})
-		.populate('students')
-		.populate('department', '-slots')
+		.populate('user')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
 			return res.json(list);
@@ -24,8 +23,7 @@ exports.getList = function getList (req, res) {
 exports.getOne = function getOne (req, res) {
 	const id = req.params.id;
 	Slot.findById(id)
-		.populate('students')
-		.populate('department', '-slots')
+		.populate('user')
 		.exec((err, slt) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);
 			if (!slt || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});

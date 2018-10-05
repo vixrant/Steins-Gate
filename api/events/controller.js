@@ -13,8 +13,7 @@ exports.postOne = function postOne (req, res) {
 // ? get /events/
 exports.getList = function getList (req, res) {
 	Event.find({})
-		.populate('students')
-		.populate('department', '-events')
+		.populate('poster')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
 			return res.json(list);
@@ -25,8 +24,7 @@ exports.getList = function getList (req, res) {
 exports.getOne = function getOne (req, res) {
 	const id = req.params.id;
 	Event.findById(id)
-		.populate('students')
-		.populate('department', '-events')
+		.populate('poster')
 		.exec((err, evnt) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);
 			if (!evnt || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
