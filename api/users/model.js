@@ -5,11 +5,13 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
 	studentId: {
 		type: Number,
+		require: true,
 		unique: true,
 		sparse: true,
 	},
 	email: {
 		type: String,
+		require: true,
 		unique: true,
 		sparse: true
 	},
@@ -25,6 +27,7 @@ const userSchema = new mongoose.Schema({
 		name: String,
 		dateOfBirth: { type: Date, default: new Date (), },
 		joinYear: { type: Number, default: new Date().getFullYear(), },
+		semester: { type: Number, min: [1, 'Can\'t be less than 1!'], max: [16, 'Too many semesters?'] },
 		department: String,
 	},
 });

@@ -62,7 +62,7 @@ exports.putOne = function putOne (req, res) {
 	User.findByIdAndUpdate(id, user)
 		.select('-password')
 		.exec((err, old) => {
-			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (err) return res.status(500).json(err);
 			if (!old || (err && err.name == 'CastError')) return res.status(404).json({ status: 'NOT FOUND' });
 			return res.json(old);
 		});

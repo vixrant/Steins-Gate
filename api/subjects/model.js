@@ -9,7 +9,8 @@ const subjectSchema = new Schema({
 		sparse: true,
 	},
 	faculty: [{	
-		type: Schema.Types.ObjectId
+		type: Schema.Types.ObjectId,
+		ref: 'User',
 	}],
 	year: {
 		type: Number,
