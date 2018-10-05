@@ -1,50 +1,44 @@
-// * MODULE DEPENDENCIES
-import { User } from '../../models';
+const { User } = require('./model');
+const jwt = require('jwt-simple');
+const { jwtSecret } = require('../../config/variables');
 
-import jwt from 'jwt-simple';
-import { jwtSecret } from '../../config/variables';
+// ? post /user/
+exports.postSignup = (req, res) => {
+	// ! NOTE: Add verification of data.
+	
+	let user = new User({
+		email: req.body.email,
+		password: req.body.password
+	});
+	
+	User.findOne({ email: req.body.email }, (err, existingUser) => {
+		if (err) { return res.status (500).json (err); }
+		if (existingUser) {
+			return res.status(401).json({ msg: 'Account with that email address already exists.' });
+		}
+		user.save((err) => {
+			if (err) { return res.status(500).json(err); }
+			return res.json(user);
+		});
+	});
+};
 
-// ? post /login/
-export function generateToken(req, res) {
-    let employID = req.get('employID');
-    let password = req.get('password');
-    if (employID && password) {
-        User.findOne({
-            employID
-        }, (err, user) => {
-            if (err) return res.status(500).send(err);
-            if (!user) return res.status(401).json({
-                error: 'User not found!'
-            });
+// ? post /user/token/
+exports.psotToken = function generateToken (req, res) {
+	let user = req.user;
+	
+	let payload = {
+		id: user._id
+	};
+	
+	let token = jwt.encode(payload, jwtSecret);
+	return res.json({
+		token
+	});
+};
 
-            user.comparePassword(password)
-                .then(match => {
-                    if (match) {
-                        let payload = {
-                            id: user._id
-                        };
-                        let token = jwt.encode(payload, jwtSecret);
-                        return res.json({
-                            token
-                        });
-                    } else {
-                        return res.status(401).json({
-                            error: 'Password incorrect!'
-                        });
-                    }
-                })
-                .catch(e => {
-                    console.error(e);
-                    res.json(e).status(500);
-                });
-        });
-    } else {
-        res.sendStatus(401);
-    }
-}
-
-// ? get/post/
-export function getUserDetails (req, res) {
-    let user = req.user;
-    return res.json(user);
-}
+// ? get /user/
+exports.getUserDetails = function getUserDetails (req, res) {
+	let user = req.user;
+	return res.json();
+};

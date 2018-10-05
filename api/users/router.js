@@ -1,15 +1,13 @@
-import express from 'express';
-import passport from 'passport';
-import passportConfig from '../../config/passport';
-import userController from '../controllers/userController';
+const express = require('express');
+const passport = require('passport');
+const passportConfig = require('../../config/passport');
+const userController = require('./controller');
 
 const router = express.Router();
 
-router.get('/', passport.authenticate('jwt'), passportConfig.isAuthenticated, userController.getUserDetails);
-router.post('/', passport.authenticate('jwt'), passportConfig.isAuthenticated, userController.getUserDetails);
-router.post('/fcm', passport.authenticate('jwt'), passportConfig.isAuthenticated, userController.getFcmToken);
+// router.get('/', passport.authenticate('jwt'), passportConfig.isAuthenticated, userController.getUserDetails);
+// router.post('/', passport.authenticate('jwt'), passportConfig.isAuthenticated, userController.getUserDetails);
+// router.post('/login', userController.generateToken);
+// router.post('/signup', userController.postSignup);
 
-router.post('/login', userController.generateToken);
-router.post('/signup', userController.postSignup);
-
-export default router;
+module.exports = router;

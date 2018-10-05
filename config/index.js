@@ -1,5 +1,5 @@
 // * MODULE DEPENDENCIES
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 // * PROJECT CONFIG
 dotenv.load({ path: '.env' });

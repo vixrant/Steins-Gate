@@ -1,20 +1,17 @@
 // * MODULE DEPENDENCIES
-import express from 'express';
-import morgan from 'morgan';
-import mongoose from 'mongoose';
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const passportConfig = require('./config/passport');
 
-import passport from 'passport'
-import passportConfig from './config/passport';
-
-import userRouter from './routes/userRouter';
-
-import { jwtSecret } from './config';
+require('./config');
 
 // * APP CREATION
 const app = express();
 
 // * APP CONFIG
-app.set('host', process.env.HOST || null);
+app.set('host', process.env.HOST || 'localhost');
 app.set('port', process.env.PORT || 8000);
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
@@ -25,12 +22,15 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // * ROUTES
+const routes = require('./api/routes');
 
 app.get('/', (req, res) => {
-    res.send('WORKING!');
+	res.send('WORKING!');
 });
-app.use('/user', userRouter);
-// app.use('/post/' , passport.authenticate('jwt'), passportConfig.isAuthenticated, postRouter);
+for (let label in routes) {
+	app.use(`/${label}`, routes [label]);
+}
+// app.use('/api/post/' , passport.authenticate('jwt'), passportConfig.isAuthenticated, postRouter);
 
 // * EXPORT
-export default app;
+module.exports = app;

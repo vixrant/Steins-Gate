@@ -6,6 +6,7 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
+import CalendarToday from "@material-ui/icons/CalendarToday";
 // core components/views
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
@@ -17,9 +18,9 @@ import NotificationsPage from "views/Notifications/Notifications.jsx";
 
 const dashboardRoutes = [
   {
-    path: "/dashboard",
-    sidebarName: "Dashboard",
-    navbarName: "Material Dashboard",
+    path: "/whiteboard",
+    sidebarName: "Whiteboard",
+    navbarName: "Whiteboard",
     icon: Dashboard,
     component: DashboardPage
   },
@@ -69,7 +70,7 @@ const dashboardRoutes = [
     path: "/calendar",
     sidebarName: "Semester Calendar",
     navbarName: "Semester Calendar",
-    icon: Notifications,
+    icon: CalendarToday,
     component: NotificationsPage
   },
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }

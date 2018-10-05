@@ -1,0 +1,35 @@
+{
+    "plugins": [],
+    "extends": ["eslint:recommended"],
+    "parserOptions": {
+      "ecmaVersion": 8
+    },
+    "env": {
+      "amd": true,
+      "node": true,
+      "commonjs": true,
+      "es6": true
+    },
+    "rules": {
+      "indent": [
+          "error",
+          "tab"
+      ],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ],
+      "no-console": "off",
+      "no-unused-vars": [
+          1
+      ]
+    }
+  }
