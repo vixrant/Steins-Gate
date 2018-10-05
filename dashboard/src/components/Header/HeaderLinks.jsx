@@ -21,7 +21,7 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
 
-import { getWorking } from "../../variables/client";
+import Client from "../../variables/client";
 
 class HeaderLinks extends React.Component {
   state = {
@@ -142,7 +142,11 @@ class HeaderLinks extends React.Component {
         <Button
           color="white"
           aria-label="edit"
-          onClick={_ => getWorking()}
+          onClick={async _ => {
+            let client = new Client();
+            let res = await client.getResourceList(client.RESOURCES.subjects);
+            alert(JSON.stringify(res));
+          }}
           justIcon
           round
         >
