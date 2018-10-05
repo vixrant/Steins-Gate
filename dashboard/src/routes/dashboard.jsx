@@ -13,6 +13,8 @@ import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+// Custom
+import SemesterCalendar from "../views/Calendar/Calendar.jsx";
 
 const dashboardRoutes = [
   {
@@ -62,7 +64,7 @@ const dashboardRoutes = [
     sidebarName: "Semester Calendar",
     navbarName: "Semester Calendar",
     icon: CalendarToday,
-    component: NotificationsPage
+    component: SemesterCalendar
   },
   { redirect: true, path: "/", to: "/whiteboard", navbarName: "Redirect" }
 ];

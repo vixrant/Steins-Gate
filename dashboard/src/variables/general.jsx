@@ -18,9 +18,12 @@ var server = [
   'Sign contract for "What are conference organizers afraid of?"'
 ];
 
+const BASEURL = "http://localhost:5000/";
+
 module.exports = {
   // these 3 are used to create the tasks lists in TasksCard - Dashboard view
   bugs,
   website,
-  server
+  server,
+  BASEURL
 };

@@ -1,54 +1,102 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { Card, CardHeader, CardFooter } from "../../components/Card";
 
-const center = {
-  width: 100 + "px",
-  height: 100 + "px",
+import Alarm from "@material-ui/icons/Alarm";
 
-  position: "absolute",
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
+import Card from "components/Card/Card.jsx";
+import CardHeader from "components/Card/CardHeader.jsx";
+import CardIcon from "components/Card/CardIcon.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+import TextInput from "@material-ui/core/TextField";
+import Button from "components/CustomButtons/Button.jsx";
+import Favorite from "@material-ui/icons/Favorite";
 
-  margin: "auto"
-};
+import { BASEURL } from "../../variables/general";
+
+import axios from "axios";
 
 class Login extends React.Component {
-  state = {};
+  state = {
+    emailFieldValue: "",
+    passwordFieldValue: ""
+  };
 
-  render() {
+  handleEmailChange = e => {
+    this.setState({
+      emailFieldValue: e.target.value
+    });
+  };
+
+  handlePasswordChange = e => {
+    this.setState({
+      passwordFieldValue: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    // axios.get("/").then(r => alert(r.data));
+
+    axios
+      .get({
+        baseURL: BASEURL,
+        url: "/users",
+        data: {
+          email: "vikrantgajria@gmail.com",
+          password: "shinchan"
+        }
+      })
+      .then(res => {
+        alert(res);
+        if (res.data.token) {
+          alert(res.data.token);
+        }
+      })
+      .catch(alert);
+  };
+
+  render = _ => {
     return (
-      <div style={center}>
+      <div>
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item xs={4}>
+          <Grid item xs={2}>
             <Card>
               <CardHeader color="warning" stats icon>
                 <CardIcon color="info">
                   <Alarm />
                 </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
-                <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
-                </h3>
               </CardHeader>
-              <CardFooter stats>
-                <div className={classes.stats}>
-                  <Danger>
-                    <Warning />
-                  </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
-                  </a>
-                </div>
-              </CardFooter>
+
+              <CardBody>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <TextInput
+                      value={this.state.emailFieldValue}
+                      label="Email"
+                      id="float"
+                      onChange={this.handleEmailChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextInput
+                      label="Password"
+                      type="password"
+                      id="float"
+                      onChange={this.handlePasswordChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} justify="right">
+                    <Button color="primary" round onClick={this.handleSubmit}>
+                      <Favorite /> With Icon Log In
+                    </Button>
+                  </Grid>
+                </Grid>
+              </CardBody>
             </Card>
           </Grid>
         </Grid>
       </div>
     );
-  }
+  };
 }
 
 export default Login;
