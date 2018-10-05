@@ -43,25 +43,18 @@ passport.use(new LocalStrategy({
 	User.findOne({
 		email: email.toLowerCase()
 	}, (err, user) => {
-		if (err) {
-			return done(err);
-		}
-		if (!user) {
-			return done(null, false, {
-				msg: `Email ${email} not found.`
-			});
-		}
-		user.comparePassword(password, (err, isMatch) => {
-			if (err) {
-				return done(err);
-			}
-			if (isMatch) {
-				return done(null, user);
-			}
-			return done(null, false, {
-				msg: 'Invalid email or password.'
-			});
+		if (err) return done(err);
+		if (!user) return done(null, false, {
+			msg: `Email ${email} not found.`
 		});
+		user.comparePassword(password)
+			.then(isMatch => {
+				if (isMatch) return done(null, user);
+				return done(null, false, {
+					msg: 'Invalid email or password.'
+				});
+			})
+			.catch(err => done(err));
 	});
 }));
 

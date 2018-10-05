@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // * ROUTES
-const routes = require('./api/routes');
+const routes = require('./api');
 
 app.get('/', (req, res) => {
 	res.send('WORKING!');

@@ -47,7 +47,8 @@ exports.putOne = function putOne (req, res) {
 
 // ? delete /departments/:id
 exports.deleteOne = function deleteOne (req, res) {
-	Department.findOneAndDelete(req.id).exec((err, dept) => {
+	const id = req.params.id;
+	Department.findOneAndDelete(id).exec((err, dept) => {
 		if (err && err.name !== 'CastError') return res.status(500).json(err);
 		if (!dept || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
 		return res.json({

@@ -47,7 +47,8 @@ exports.putOne = function putOne (req, res) {
 
 // ? delete /batches/:id
 exports.deleteOne = function deleteOne (req, res) {
-	Batch.findOneAndDelete(req.id).exec((err, btch) => {
+	const id = req.params.id;
+	Batch.findOneAndDelete(id).exec((err, btch) => {
 		if (err && err.name !== 'CastError') return res.status(500).json(err);
 		if (!btch || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
 		return res.json({

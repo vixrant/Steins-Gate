@@ -1,8 +1,7 @@
 const { User } = require('./model');
-const jwt = require('jwt-simple');
-const { jwtSecret } = require('../../config/variables');
+const jwt = require('../../util/jwt');
 
-// ? post /user/
+// ? post /users/
 exports.postSignup = (req, res) => {
 	// ! NOTE: Add verification of data.
 	
@@ -23,22 +22,63 @@ exports.postSignup = (req, res) => {
 	});
 };
 
-// ? post /user/token/
-exports.psotToken = function generateToken (req, res) {
-	let user = req.user;
+// ? post /users/token/
+exports.postToken = function generateToken (req, res) {
+	const token = jwt.generateToken(req.user._id);
 	
-	let payload = {
-		id: user._id
-	};
-	
-	let token = jwt.encode(payload, jwtSecret);
 	return res.json({
 		token
 	});
 };
 
-// ? get /user/
-exports.getUserDetails = function getUserDetails (req, res) {
-	let user = req.user;
-	return res.json();
+// ----- Standard functions
+
+// ? get /users/
+exports.getList = function getList (req, res) {
+	User.find({})
+		.select('-password')
+		.exec((err, list) => {
+			if (err) return res.status(500).json(err);
+			return res.json(list);
+		});
+};
+
+// ? get /users/:id
+exports.getOne = function getOne (req, res) {
+	const id = req.params.id;
+	User.findById(id)
+		.select('-password')
+		.exec((err, user) => {
+			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (!user || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
+			return res.json (user);
+		});
+};
+
+// ? put /users/:id
+exports.putOne = function putOne (req, res) {
+	const user = req.body;
+	const id = req.params.id;
+	User.findByIdAndUpdate(id, user)
+		.select('-password')
+		.exec((err, old) => {
+			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (!old || (err && err.name == 'CastError')) return res.status(404).json({ status: 'NOT FOUND' });
+			return res.json(old);
+		});
+};
+
+// ? delete /users/:id
+exports.deleteOne = function deleteOne (req, res) {
+	const id = req.params.id;
+	User.findOneAndDelete(id)
+		.select('-password')
+		.exec((err, user) => {
+			if (err && err.name !== 'CastError') return res.status(500).json(err);
+			if (!user || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
+			return res.json({
+				status: 'OK',
+				deleted: user
+			});
+		});
 };

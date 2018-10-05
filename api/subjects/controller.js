@@ -45,7 +45,8 @@ exports.putOne = function putOne (req, res) {
 
 // ? delete /subjects/:id
 exports.deleteOne = function deleteOne (req, res) {
-	Subject.findOneAndDelete(req.id).exec((err, subj) => {
+	const id = req.params.id;
+	Subject.findOneAndDelete(id).exec((err, subj) => {
 		if (err && err.name !== 'CastError') return res.status(500).json(err);
 		if (!subj || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
 		return res.json({

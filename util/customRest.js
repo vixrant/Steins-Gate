@@ -51,7 +51,8 @@ function restified (Model) {
 
 	// ? delete /models/:id
 	const deleteOne = function deleteOne (req, res) {
-		Model.findOneAndDelete(req.id).exec((err, dept) => {
+		const id = req.params.id;
+		Model.findOneAndDelete(id).exec((err, dept) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);
 			if (!dept || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});
 			return res.json({

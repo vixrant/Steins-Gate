@@ -4,6 +4,7 @@ const batches = require('./batches/router');
 const departments = require('./departments/router');
 
 module.exports = {
+	users,
 	subjects,
 	batches,
 	departments,
