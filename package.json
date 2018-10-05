@@ -9,6 +9,9 @@
     "start": "nodemon index.js",
     "test": "node api/tests"
   },
+  "engines": {
+    "node": "8.11.3"
+  },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "chalk": "^2.4.1",

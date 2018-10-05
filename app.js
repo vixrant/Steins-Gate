@@ -12,7 +12,7 @@ const app = express();
 
 // * APP CONFIG
 app.set('host', process.env.HOST || 'localhost');
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 5000);
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 // * MIDDLEWARE

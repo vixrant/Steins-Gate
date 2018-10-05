@@ -4,7 +4,6 @@ import Person from "@material-ui/icons/Person";
 // import ContentPaste from "@material-ui/icons/ContentPaste";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
-import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 // core components/views
@@ -13,7 +12,6 @@ import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
-import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 
 const dashboardRoutes = [
@@ -53,13 +51,6 @@ const dashboardRoutes = [
     component: Icons
   },
   {
-    path: "/maps",
-    sidebarName: "Maps",
-    navbarName: "Map",
-    icon: LocationOn,
-    component: Maps
-  },
-  {
     path: "/notifications",
     sidebarName: "Notifications",
     navbarName: "Notifications",
@@ -73,7 +64,7 @@ const dashboardRoutes = [
     icon: CalendarToday,
     component: NotificationsPage
   },
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  { redirect: true, path: "/", to: "/whiteboard", navbarName: "Redirect" }
 ];
 
 export default dashboardRoutes;
