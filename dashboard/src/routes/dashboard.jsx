@@ -3,7 +3,6 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 // import ContentPaste from "@material-ui/icons/ContentPaste";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import BubbleChart from "@material-ui/icons/BubbleChart";
 import Notifications from "@material-ui/icons/Notifications";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 // core components/views
@@ -11,10 +10,9 @@ import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
-import Icons from "views/Icons/Icons.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 // Custom
-import SemesterCalendar from "../views/Calendar/Calendar.jsx";
+import CalendarPage from "views/Calendar/index.jsx";
 
 const dashboardRoutes = [
   {
@@ -46,13 +44,6 @@ const dashboardRoutes = [
     component: Typography
   },
   {
-    path: "/icons",
-    sidebarName: "Icons",
-    navbarName: "Icons",
-    icon: BubbleChart,
-    component: Icons
-  },
-  {
     path: "/notifications",
     sidebarName: "Notifications",
     navbarName: "Notifications",
@@ -64,7 +55,7 @@ const dashboardRoutes = [
     sidebarName: "Semester Calendar",
     navbarName: "Semester Calendar",
     icon: CalendarToday,
-    component: SemesterCalendar
+    component: CalendarPage
   },
   { redirect: true, path: "/", to: "/whiteboard", navbarName: "Redirect" }
 ];

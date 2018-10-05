@@ -1,4 +1,13 @@
 export default {
-  SET_DATE: "SET_DATE",
-  CLEAR_DATE: "CLEAR_DATE"
+  SET_DATE: d => ({
+    type: "SET_DATE",
+    payload: d
+  }),
+  CLEAR_DATE: _ => ({
+    type: "CLEAR_DATE"
+  }),
+  ADD_EVENT: es => ({
+    type: "ADD_EVENT",
+    payload: es
+  })
 };

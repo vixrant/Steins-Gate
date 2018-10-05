@@ -1,20 +1,29 @@
-import calendarActions from "../actions/calendarActions";
-
 const initState = {
-  selectedDate: null
+  selectedDate: null,
+  events: []
 };
 
 export default function calendarReducer(state = initState, action) {
   switch (action.type) {
-    case calendarActions.SET_DATE: {
+    case "SET_DATE": {
       return {
+        ...state,
         selectedDate: action.payload
       };
     }
 
-    case calendarActions.CLEAR_DATE: {
+    case "CLEAR_DATE": {
       return {
+        ...state,
         selectedDate: null
+      };
+    }
+
+    case "ADD_EVENT": {
+      let events = [...state.events, ...action.payload];
+      return {
+        ...state,
+        events
       };
     }
 
