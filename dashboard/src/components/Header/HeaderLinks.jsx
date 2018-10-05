@@ -14,6 +14,7 @@ import Face from "@material-ui/icons/Face";
 import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
+import AddIcon from "@material-ui/icons/Add";
 // core components
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
@@ -150,6 +151,10 @@ class HeaderLinks extends React.Component {
           <Hidden mdUp implementation="css">
             <p className={classes.linkText}>Profile</p>
           </Hidden>
+        </Button>
+
+        <Button color="white" aria-label="edit" justIcon round>
+          <AddIcon />
         </Button>
       </div>
     );

@@ -36,6 +36,8 @@ exports.postToken = function generateToken (req, res) {
 // ? get /users/
 exports.getList = function getList (req, res) {
 	User.find({})
+		.populate('profile.department')
+		.populate('profile.batch')
 		.select('-password')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
@@ -47,6 +49,8 @@ exports.getList = function getList (req, res) {
 exports.getOne = function getOne (req, res) {
 	const id = req.params.id;
 	User.findById(id)
+		.populate('profile.department')
+		.populate('profile.batch')
 		.select('-password')
 		.exec((err, user) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);

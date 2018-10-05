@@ -20,6 +20,16 @@ import { FormControl } from "@material-ui/core";
 const localizer = BigCalendar.momentLocalizer(moment);
 let events = [];
 
+// float
+const floatStyle = {
+  margin: 0,
+  top: "auto",
+  right: 20,
+  bottom: 20,
+  left: "auto",
+  position: "fixed"
+};
+
 function Transition(props) {
   return <Slide direction="up" {...props} />;
 }

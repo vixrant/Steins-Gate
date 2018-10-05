@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
 	studentId: {
 		type: Number,
 		require: true,
@@ -28,8 +30,11 @@ const userSchema = new mongoose.Schema({
 		dateOfBirth: { type: Date, default: new Date (), },
 		joinYear: { type: Number, default: new Date().getFullYear(), },
 		semester: { type: Number, min: [1, 'Can\'t be less than 1!'], max: [16, 'Too many semesters?'] },
-		department: String,
+		department: { type: Schema.Types.ObjectId, ref: 'Department' },
+		batch: { type: Schema.Types.ObjectId, ref: 'Batch' },
 	},
+
+	avatar: String
 });
 
 /**
