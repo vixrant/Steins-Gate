@@ -13,6 +13,7 @@ exports.postOne = function postOne (req, res) {
 exports.getList = function getList (req, res) {
 	Subject.find({})
 		.populate('faculty')
+		.populate('reps.batch')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
 			return res.json(list);
@@ -24,6 +25,7 @@ exports.getOne = function getOne (req, res) {
 	const id = req.params.id;
 	Subject.findById(id)
 		.populate('faculty')
+		.populate('reps.batch')
 		.exec((err, subj) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);
 			if (!subj || (err && err.name == 'CastError')) return res.status(404).json({status: 'NOT FOUND'});

@@ -43,7 +43,7 @@ class Tasks extends React.Component {
           {tasksIndexes.map(value => (
             <TableRow key={value} className={classes.tableRow}>
               <TableCell className={classes.tableCell}>
-                <Checkbox
+                {/* <Checkbox
                   checked={this.state.checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   onClick={this.handleToggle(value)}
@@ -53,7 +53,7 @@ class Tasks extends React.Component {
                     checked: classes.checked,
                     root: classes.root
                   }}
-                />
+                /> */}
               </TableCell>
               <TableCell className={classes.tableCell}>
                 {tasks[value]}
@@ -63,13 +63,14 @@ class Tasks extends React.Component {
                   id="tooltip-top"
                   title="Edit Task"
                   placement="top"
+                  onClick={this.props.onClick}
                   classes={{ tooltip: classes.tooltip }}
                 >
                   <IconButton
-                    aria-label="Edit"
+                    aria-label="Attended"
                     className={classes.tableActionButton}
                   >
-                    <Edit
+                    <Check
                       className={
                         classes.tableActionButtonIcon + " " + classes.edit
                       }
@@ -105,7 +106,8 @@ class Tasks extends React.Component {
 Tasks.propTypes = {
   classes: PropTypes.object.isRequired,
   tasksIndexes: PropTypes.arrayOf(PropTypes.number),
-  tasks: PropTypes.arrayOf(PropTypes.node)
+  tasks: PropTypes.arrayOf(PropTypes.node),
+  onClick: PropTypes.func
 };
 
 export default withStyles(tasksStyle)(Tasks);

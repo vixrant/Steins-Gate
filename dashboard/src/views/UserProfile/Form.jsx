@@ -9,7 +9,6 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
-import InputLabel from "@material-ui/core/InputLabel";
 
 class Form extends React.Component {
   constructor(props) {

@@ -6,7 +6,7 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Notifications from "@material-ui/icons/Notifications";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 // core components/views
-import DashboardPage from "views/Dashboard/Dashboard.jsx";
+import DashboardPage from "views/Whiteboard/Whiteboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
@@ -16,18 +16,18 @@ import CalendarPage from "views/Calendar/index.jsx";
 
 const dashboardRoutes = [
   {
-    path: "/whiteboard",
-    sidebarName: "Whiteboard",
-    navbarName: "Whiteboard",
-    icon: Dashboard,
-    component: DashboardPage
-  },
-  {
     path: "/user",
     sidebarName: "User Profile",
     navbarName: "Profile",
     icon: Person,
     component: UserProfile
+  },
+  {
+    path: "/whiteboard",
+    sidebarName: "Whiteboard",
+    navbarName: "Whiteboard",
+    icon: Dashboard,
+    component: DashboardPage
   },
   {
     path: "/table",

@@ -16,7 +16,7 @@ import dashboardRoutes from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
-import image from "assets/img/sidebar-2.jpg";
+import image from "assets/img/sidebar-0.png";
 import logo from "assets/img/backpack.svg";
 
 const switchRoutes = (
@@ -65,7 +65,7 @@ class App extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("resize", this.resizeFunction);
   }
-  render() {
+  render = _ => {
     const { classes, ...rest } = this.props;
     return (
       <div className={classes.wrapper}>

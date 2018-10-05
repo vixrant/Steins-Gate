@@ -19,8 +19,8 @@ const eventSchema = new Schema({
     
 	category: {
 		type: String,
-		enum: ['exam', 'seminar', 'workshop', 'activity', 'competition', ],
-	},
+		enum: ['exam', 'seminar', 'workshop', 'activity', 'competition',],
+	}
 });
 
 const Event = mongoose.model('Batch', eventSchema);

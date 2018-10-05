@@ -1,0 +1,52 @@
+.text-light {color:#fff;}
+.store-list-results .store-list .faux-row .store-actions {float:right;}
+
+.BVRRPageBasedPager, .BVRRPagerColumn {display:block !important;}
+
+.example2 a:link { text-decoration: none }
+
+.ly_sub .catalog-info,
+.ly_solrsearchresults .catalog-info {font-size:16px; margin-bottom:1.5em;}
+.ly_sub .catalog-info h1,
+.ly_solrsearchresults .catalog-info h1 {font-size:22px}
+
+.ly_basic.Home #main {padding-top: 1.42em !important;}
+
+@media (max-width: 991px){
+	.BVDI_MWNavCarousel {
+		display: none;
+	}	
+}
+
+
+.st_twitter_custom,
+.st_pinterest_custom,
+.st_googleplus_custom {
+         display: inline-block;
+}
+#product-information-panel {display:inline-block;}
+
+
+
+.footer .footer_section {
+    display: inline-block !important;
+} 
+
+
+.order-confirmation .typography.block-margins h3 {
+     color: transparent;
+}
+
+.order-confirmation .typography.block-margins h3::after {
+     color: black;
+     content: "Thank you for your order";
+     margin-left: -245px;
+}
+
+.form-group.add-to-bag-button, .btn-lg {
+background-color:#889a72 }
+
+
+#recaptcha_widget {
+	display: none;
+}
