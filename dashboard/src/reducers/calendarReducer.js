@@ -1,5 +1,5 @@
 const initState = {
-  selectedDate: null,
+  selectedEvent: null,
   events: []
 };
 
@@ -8,14 +8,14 @@ export default function calendarReducer(state = initState, action) {
     case "SET_DATE": {
       return {
         ...state,
-        selectedDate: action.payload
+        selectedEvent: action.payload
       };
     }
 
     case "CLEAR_DATE": {
       return {
         ...state,
-        selectedDate: null
+        selectedEvent: null
       };
     }
 
@@ -25,6 +25,10 @@ export default function calendarReducer(state = initState, action) {
         ...state,
         events
       };
+    }
+
+    case "CLEAR_EVENT": {
+      return initState;
     }
 
     default: {

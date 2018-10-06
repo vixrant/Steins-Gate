@@ -9,5 +9,8 @@ export default {
   ADD_EVENT: es => ({
     type: "ADD_EVENT",
     payload: es
+  }),
+  CLEAR_EVENT: _ => ({
+    type: "CLEAR_EVENT"
   })
 };
