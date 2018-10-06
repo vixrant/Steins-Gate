@@ -13,13 +13,15 @@ import Favorite from "@material-ui/icons/Favorite";
 
 import { BASEURL } from "../../variables/general";
 
-import axios from "axios";
-
 class Login extends React.Component {
   state = {
     emailFieldValue: "",
     passwordFieldValue: ""
   };
+
+  constructor(props) {
+    super(props);
+  }
 
   handleEmailChange = e => {
     this.setState({
@@ -35,23 +37,22 @@ class Login extends React.Component {
 
   handleSubmit = e => {
     // axios.get("/").then(r => alert(r.data));
-
-    axios
-      .get({
-        baseURL: BASEURL,
-        url: "/users",
-        data: {
-          email: "vikrantgajria@gmail.com",
-          password: "shinchan"
-        }
-      })
-      .then(res => {
-        alert(res);
-        if (res.data.token) {
-          alert(res.data.token);
-        }
-      })
-      .catch(alert);
+    // axios
+    //   .get({
+    //     baseURL: BASEURL,
+    //     url: "/users",
+    //     data: {
+    //       email: "vikrantgajria@gmail.com",
+    //       password: "shinchan"
+    //     }
+    //   })
+    //   .then(res => {
+    //     alert(res);
+    //     if (res.data.token) {
+    //       alert(res.data.token);
+    //     }
+    //   })
+    //   .catch(alert);
   };
 
   render = _ => {

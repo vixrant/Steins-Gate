@@ -33,11 +33,11 @@ function UserProfile(props) {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
-          <Form />
-        </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Registrations />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={8}>
+          <Form />
         </GridItem>
       </GridContainer>
     </div>

@@ -1,9 +1,17 @@
 const initState = {
   user: {
     profile: {
-      dateOfBirth: "2018-10-06T00:50:10.505Z",
+      dateOfBirth: "2018-10-06T02:52:23.139Z",
       joinYear: 2018,
-      semester: 3
+      name: "Vikrant Gajria",
+      semester: 3,
+      department: {
+        faculty: [],
+        _id: "5bb729c2d1f25721a16a5cac",
+        batches: [],
+        name: "Computer",
+        __v: 0
+      }
     },
     _id: "5bb73ec15974ca3047c08ff5",
     email: "vikrantgajria@gmail.com",
@@ -28,7 +36,6 @@ const initState = {
       }
     ]
   }, // ! REPLACE WITH NULL
-
   jwt: null
 };
 

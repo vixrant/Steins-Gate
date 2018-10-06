@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -12,12 +13,15 @@ import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 
+import Client from "../../variables/client";
+
 import dashboardRoutes from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
 import image from "assets/img/sidebar-0.png";
 import logo from "assets/img/backpack.svg";
+import userActions from "../../actions/userActions";
 
 const switchRoutes = (
   <Switch>
@@ -32,9 +36,16 @@ const switchRoutes = (
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       mobileOpen: false
     };
+
+    // let c = new Client();
+    // c.getUser("5bb73ec15974ca3047c08ff5").then(e => {
+    //   this.props.updateUser(e);
+    // });
+    
     this.resizeFunction = this.resizeFunction.bind(this);
   }
   handleDrawerToggle = () => {
@@ -106,4 +117,12 @@ App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(dashboardStyle)(App);
+let mapStateToProps = state => {
+  user: state.user
+}
+
+let mapDispatchToProps = dispatch => {
+  updateUser: u => dispatch(userActions.updateUser(u));
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(dashboardStyle)(App));

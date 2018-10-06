@@ -9,7 +9,5 @@ const BASEURL = "http://localhost:5000/";
 module.exports = {
   // these 3 are used to create the tasks lists in TasksCard - Dashboard view
   bugs,
-  website,
-  server,
   BASEURL
 };

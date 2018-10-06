@@ -1,13 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import BugReport from "@material-ui/icons/BugReport";
 import CalendarIcon from "@material-ui/icons/CalendarToday";
 import Tasks from "components/Tasks/Tasks.jsx";
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
-import { bugs, website, server } from "variables/general.jsx";
+import { bugs } from "variables/general.jsx";
+
+import Client from "../../variables/client";
 
 class Component extends React.Component {
+  state = {
+    subjects: []
+  };
+
+  constructor(props) {
+    super(props);
+    let c = new Client();
+    c.getResourceList(c.RESOURCES.subjects).then(subjects => {
+      this.setState({
+        subjects
+      });
+    });
+  }
+
   render = _ => (
     <CustomTabs
       title=""
@@ -18,9 +33,10 @@ class Component extends React.Component {
           tabIcon: CalendarIcon,
           tabContent: (
             <Tasks
-              checkedIndexes={[0, 3]}
-              tasksIndexes={[0, 1, 2, 3]}
-              tasks={bugs}
+              tasksIndexes={[...Array(this.state.subjects.length).keys()].map(
+                i => i + 0
+              )}
+              tasks={this.state.subjects.map(e => e.name)}
             />
           )
         }

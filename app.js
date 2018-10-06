@@ -25,6 +25,7 @@ app.use(passport.initialize());
 
 // * ROUTES
 const routes = require('./api');
+const webhook = require('./webhookbot');
 
 app.get('/', (req, res) => {
 	res.send('WORKING!');
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
 for (let label in routes) {
 	app.use(`/${label}`, routes [label]);
 }
-// app.use('/api/post/' , passport.authenticate('jwt'), passportConfig.isAuthenticated, postRouter);
+app.use('/df', webhook);
 
 // * EXPORT
 module.exports = app;

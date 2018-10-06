@@ -14,10 +14,10 @@ import Marker from "./Marker";
 class Component extends React.Component {
   render = _ => (
     <GridContainer>
-      <GridItem xs={12} sm={12} md={6}>
+      <GridItem xs={12} sm={4} md={4}>
         <Marker />
       </GridItem>
-      <GridItem xs={12} sm={12} md={6}>
+      <GridItem xs={12} sm={8} md={8}>
         <Card>
           <CardHeader color="danger">
             <h3 style={{ color: "white" }}>Upcoming exams/ important</h3>
@@ -30,10 +30,18 @@ class Component extends React.Component {
                 [
                   "Unit tests begin",
                   "Hari Vasudevan",
-                  new Date().toDateString()
+                  new Date("10/17/2018").toDateString()
                 ],
-                ["Unit tests end", "Hari Vasudevan", new Date().toDateString()],
-                ["OOPM Submissions", "$56,142", new Date().toDateString()]
+                [
+                  "Unit tests end",
+                  "Hari Vasudevan",
+                  new Date("10/17/2018").toDateString()
+                ],
+                [
+                  "OOPM Submissions",
+                  "Sindhu Sindh",
+                  new Date("10/17/2018").toDateString()
+                ]
               ]}
             />
           </CardBody>

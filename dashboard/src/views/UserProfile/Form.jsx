@@ -15,15 +15,16 @@ class Form extends React.Component {
     super(props);
     this.myRefs = {};
     this.inputProps = val => ({
-      value: val != null ? val : ""
+      value: val ? val : ""
     });
   }
 
   render = _ => (
     <Card>
       <CardHeader color="primary">
-        <h4>Edit Profile</h4>
-        <p>Complete your profile</p>
+        <div style={{ color: "white", fontSize: "20px" }}>
+          <h4>Edit Profile</h4>
+        </div>
       </CardHeader>
       <CardBody>
         <GridContainer>
