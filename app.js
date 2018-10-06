@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 for (let label in routes) {
 	app.use(`/${label}`, routes [label]);
 }
-app.use('/df', webhook);
+app.use('/df', passport.authenticate('jwt'), passportConfig.isAuthenticated, webhook);
 
 // * EXPORT
 module.exports = app;
