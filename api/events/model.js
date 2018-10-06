@@ -2,16 +2,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		require: true,
 	},
     
-	date: {
+	start: {
 		type: Date,
 		default: new Date(),
 	},
-    
+
+	end: {
+		type: Date,
+		default: new Date(),
+	},
+
+	allDay: {
+		type: Boolean,
+		default: true,
+	},
+
 	poster: {
 		type: Schema.Types.ObjectId,
 		ref: 'User',
@@ -23,7 +33,7 @@ const eventSchema = new Schema({
 	}
 });
 
-const Event = mongoose.model('Batch', eventSchema);
+const Event = mongoose.model('Event', eventSchema);
 
 // * EXPORT
 module.exports = {

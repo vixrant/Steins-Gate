@@ -34,6 +34,14 @@ const userSchema = new Schema({
 		batch: { type: Schema.Types.ObjectId, ref: 'Batch' },
 	},
 
+	attendance: [{
+		subject: { type: Schema.Types.ObjectId, ref: 'Subject' },
+		lectures: {
+			total: Number,
+			attended: Number,
+		}
+	}],
+
 	avatar: String
 });
 

@@ -38,6 +38,7 @@ exports.getList = function getList (req, res) {
 	User.find({})
 		.populate('profile.department')
 		.populate('profile.batch')
+		.populate('attendance.subject')
 		.select('-password')
 		.exec((err, list) => {
 			if (err) return res.status(500).json(err);
@@ -51,6 +52,7 @@ exports.getOne = function getOne (req, res) {
 	User.findById(id)
 		.populate('profile.department')
 		.populate('profile.batch')
+		.populate('attendance.subject')
 		.select('-password')
 		.exec((err, user) => {
 			if (err && err.name !== 'CastError') return res.status(500).json(err);
@@ -86,3 +88,66 @@ exports.deleteOne = function deleteOne (req, res) {
 			});
 		});
 };
+
+// ? get /users/att
+exports.getAttendance = function getAttendance (req, res) {
+	let user = req.user;
+	user.populate('attendance.subject').exec((err, u) => {
+		if (err) return res.status(500).json(err);
+		else return res.json(u);
+	});
+};
+
+// ? post /users/att
+exports.addAttendance = function addAttendance (req, res) {
+	const user = req.user;
+	const count = req.body.count || 1;
+	const subject = req.body.subject;
+	
+	let attendance = user.attendance;
+	const i = attendance.findIndex(e => e.subject.toString() === subject);
+	if (i === -1) {
+		attendance.push({
+			subject,
+			lectures: {
+				total: count,
+				attended: count,
+			}
+		});
+	} else {
+		attendance[i].lectures.total += count;
+		attendance[i].lectures.attended += count;
+	}
+
+	User.findByIdAndUpdate(user._id, { attendance }).exec(err => {
+		if (err) return res.status(500).json(err);
+		res.json(attendance);
+	});
+};
+
+// ? post /users/datt
+exports.addBunk = function addBunk (req, res) {
+	const user = req.user;
+	const count = req.body.count || 1;
+	const subject = req.body.subject;
+	
+	let attendance = user.attendance;
+	const i = attendance.findIndex(e => e.subject.toString() === subject);
+	if (i === -1) {
+		attendance.push({
+			subject,
+			lectures: {
+				total: count,
+				attended: 0,
+			}
+		});
+	} else {
+		attendance[i].lectures.total += count;
+	}
+
+	User.findByIdAndUpdate(user._id, { attendance }).exec(err => {
+		if (err) return res.status(500).json(err);
+		res.json(attendance);
+	});
+};
+

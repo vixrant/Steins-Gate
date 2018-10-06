@@ -1,23 +1,32 @@
 const initState = {
   user: {
     profile: {
-      dateOfBirth: "2018-10-05T18:45:50.251Z",
+      dateOfBirth: "2018-10-06T00:50:10.505Z",
       joinYear: 2018,
-      name: "Vikrant Gajria",
-      department: {
-        faculty: [],
-        _id: "5bb729c2d1f25721a16a5cac",
-        batches: [],
-        name: "Computer",
-        __v: 0
-      }
+      semester: 3
     },
     _id: "5bb73ec15974ca3047c08ff5",
     email: "vikrantgajria@gmail.com",
     __v: 0,
     status: 1,
     studentId: 60004170119,
-    avatar: "https://www.vikrant.ga/images/avatar.jpg"
+    avatar: "https://www.vikrant.ga/images/avatar.jpg",
+    attendance: [
+      {
+        lectures: {
+          total: 6,
+          attended: 4
+        },
+        _id: "5bb80456fdc80f9b257d5d0b",
+        subject: {
+          faculty: ["5bb73ec15974ca3047c08ff5"],
+          reps: [],
+          _id: "5bb7466461b981354d3bac3a",
+          name: "DLDA",
+          __v: 0
+        }
+      }
+    ]
   }, // ! REPLACE WITH NULL
 
   jwt: null

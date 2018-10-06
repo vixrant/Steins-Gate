@@ -14,4 +14,7 @@ router.get('/:id', controller.getOne);
 router.put('/:id', controller.putOne);
 router.delete('/:id', controller.deleteOne);
 
+router.post('/att', passport.authenticate('jwt'), passportConfig.isAuthenticated, controller.addAttendance);
+router.post('/datt', passport.authenticate('jwt'), passportConfig.isAuthenticated, controller.addBunk);
+
 module.exports = router;
