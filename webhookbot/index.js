@@ -55,6 +55,21 @@ router.post('/', (req, res) => {
 				});
 			});
 	}
+
+	if (intent === 'attentance check') {
+		let attendance = user.attendance;
+		let dataToSend = 'Your attendance report is: ';
+		attendance.populate('subject').forEach(e => {
+			dataToSend += ` ${e.subject} ${e.lectures.attended * 100 / e.lectures.total} `;
+		});
+
+		return res.json({
+			speech: dataToSend,
+			displayText: dataToSend,
+			source: 'attendance'
+		});
+	}
+
 });
 
 module.exports = router;
