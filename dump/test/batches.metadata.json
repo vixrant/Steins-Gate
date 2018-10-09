@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"test.batches"},{"v":2,"unique":true,"key":{"name":1},"name":"name_1","ns":"test.batches","sparse":true,"background":true}],"uuid":"e843096e3dba4a67a9c10efe40ca48d2"}

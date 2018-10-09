@@ -9,5 +9,9 @@ export default {
   }),
   LOGOUT: _ => ({
     type: "LOGOUT"
+  }),
+  EVENT_BOX: t => ({
+    type: "EVENT_BOX",
+    payload: t
   })
 };

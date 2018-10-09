@@ -12,6 +12,8 @@ router.post('/', (req, res) => {
 
 	const intent = req.body.queryResult.intent.displayName;
 
+	console.log(req.body.queryResult);
+
 	let par = 0;
 	if (intent === 'attendance intent')
 		par = 1;
@@ -49,9 +51,11 @@ router.post('/', (req, res) => {
 				});
 
 				return res.json({
-					speech: dataToSend,
-					displayText: dataToSend,
-					source: 'attendance'
+					messages: [{
+						speech: dataToSend,
+						displayText: dataToSend,
+						source: 'attendance'
+					}]
 				});
 			});
 	}
@@ -62,6 +66,8 @@ router.post('/', (req, res) => {
 		attendance.populate('subject').forEach(e => {
 			dataToSend += ` ${e.subject} ${e.lectures.attended * 100 / e.lectures.total} `;
 		});
+
+		console.log(dataToSend);
 
 		return res.json({
 			speech: dataToSend,

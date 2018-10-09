@@ -13,7 +13,23 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 
+import Client from "../../variables/client";
+
 class Component extends React.Component {
+  state = {
+    events: []
+  };
+
+  constructor(props) {
+    super(props);
+    let c = new Client();
+    c.getResourceList(c.RESOURCES.events).then(es => {
+      this.setState({
+        events: es
+      });
+    });
+  }
+
   render = _ => (
     <GridContainer>
       <GridItem xs={12} sm={12} md={4}>
@@ -50,11 +66,10 @@ class Component extends React.Component {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Seminar", "Poster", "Date"]}
+              tableHead={["Workshop", "Poster", "Date"]}
               tableData={[
-                ["NodeJS", "Hari Vasudevan", new Date().toDateString()],
-                ["Hasura", "Romil Nisar", new Date().toDateString()],
-                ["Django", "Vikrant Gajria", new Date().toDateString()]
+                ["Internships", "Hari Vasudevan", new Date().toDateString()],
+                ["Hasura", "Romil Nisar", new Date().toDateString()]
               ]}
             />
           </CardBody>
@@ -72,11 +87,23 @@ class Component extends React.Component {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Seminar", "Poster", "Date"]}
+              tableHead={["Competition", "Poster", "Date"]}
               tableData={[
-                ["NodeJS", "Hari Vasudevan", new Date().toDateString()],
-                ["Hasura", "Romil Nisar", new Date().toDateString()],
-                ["Django", "Vikrant Gajria", new Date().toDateString()]
+                [
+                  "NodeJS",
+                  "Hari Vasudevan",
+                  new Date("10/09/2018").toDateString()
+                ],
+                [
+                  "Hasura",
+                  "Romil Nisar",
+                  new Date("10/08/2018").toDateString()
+                ],
+                [
+                  "Django",
+                  "Vikrant Gajria",
+                  new Date("10/09/2018").toDateString()
+                ]
               ]}
             />
           </CardBody>

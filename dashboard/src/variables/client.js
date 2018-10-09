@@ -98,7 +98,7 @@ export default class Client {
 
   // -----
 
-  async createResource(label, data) {
+  async postResource(label, data) {
     const body = {
       url: `/${label}/`,
       method: "POST",

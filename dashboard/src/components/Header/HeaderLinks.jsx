@@ -19,7 +19,12 @@ import AddIcon from "@material-ui/icons/Add";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 
+import EventBox from "components/EventDialog/index.jsx";
+
 import headerLinksStyle from "assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
+
+import { connect } from "react-redux";
+import userActions from "../../actions/userActions";
 
 import Client from "../../variables/client";
 
@@ -36,7 +41,6 @@ class HeaderLinks extends React.Component {
     if (this.anchorEl.contains(event.target)) {
       return;
     }
-
     this.setState({ open: false });
   };
 
@@ -53,6 +57,7 @@ class HeaderLinks extends React.Component {
           className={classes.buttonLink}
         >
           <Face className={classes.icons} />
+          <EventBox open={this.state.eventsBox} />
           <Hidden mdUp implementation="css">
             <p className={classes.linkText}>Profile</p>
           </Hidden>
@@ -61,11 +66,7 @@ class HeaderLinks extends React.Component {
         <Button
           color="white"
           aria-label="edit"
-          onClick={async _ => {
-            let client = new Client();
-            let res = await client.getResourceList(client.RESOURCES.subjects);
-            alert(JSON.stringify(res));
-          }}
+          onClick={this.props.showBox}
           justIcon
           round
         >
@@ -76,4 +77,16 @@ class HeaderLinks extends React.Component {
   }
 }
 
-export default withStyles(headerLinksStyle)(HeaderLinks);
+const mapStateToProps = state => ({
+  show: state.eventBox
+});
+
+const mapDispatchToProps = dispatch => ({
+  showBox: _ => dispatch(userActions.EVENT_BOX(true)),
+  hideBox: _ => dispatch(userActions.EVENT_BOX(false))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(headerLinksStyle)(HeaderLinks));

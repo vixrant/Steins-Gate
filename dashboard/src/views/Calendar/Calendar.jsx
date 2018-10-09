@@ -89,11 +89,11 @@ class SemesterCalendar extends React.Component {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {"Add to your Google Calendar?"}
+          {"Add to your Calendar?"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Add an event/ time table subject.
+            Add this event to your calendar?
           </DialogContentText>
           <FormControl />
         </DialogContent>
