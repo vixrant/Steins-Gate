@@ -2,12 +2,12 @@
 ##### KJSCE Hackathon 2018, 4th Rank
 > College Activity Manager
 
-![](https://img.shields.io/badge/Stack-MERN-red.svg)
+A dashboard for curating all the activities happening in the college.
 
-One to two paragraph statement about your product and what it does.
+![MERN](https://img.shields.io/badge/Stack-MERN-red.svg)
+[![HitCount](http://hits.dwyl.io/vixrant/kjsce-hackathon-18.svg)](http://hits.dwyl.io/vixrant/kjsce-hackathon-18)
 
-![whiteboard](/docs/images/whiteboard.png)
-![google assistant](/docs/images/google-assistant.png)
+![whiteboard](/docs/images/whiteboard.png) ![google assistant](/docs/images/google-assistant.png)
 
 ## Build instructions
 
@@ -45,22 +45,38 @@ To build the webpack, `npm run build` or `yarn build`.
 
 The project was made by one person in a 24 hour hackathon. You can read about my experience on my blog:
 
-Vikrant Gajria – [www.vikrant.ga](https://www.vikrant.ga/) – gajriavikrant@gmail.com
-
-Distributed under the AGPLv3 license. See ``LICENSE`` for more information.
-
-[https://github.com/vixrant](https://github.com/vixrant/)
+> Vikrant Gajria – [www.vikrant.ga](https://www.vikrant.ga/) – gajriavikrant@gmail.com
+> [https://github.com/vixrant](https://github.com/vixrant/)
 
 ## Contributing
 
 1. Fork it (<https://github.com/vixrant/kjsce-hackathon-2018/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
+3. Commit your changes (`git commit -m 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+## Failures
+
+> As with all my hackathon projects, I include a [FAILURES.md](/FAILURES.md)
+> which includes all the obstacles that I encountered while developing this project.
+> This project was successful. 
+> But that doesn't mean I ignore the small mistakes that I made along the way.
+
+-----------
+APGLv3 LICENSE
+-----------
+
+> Copyright (C) 2018 Vikrant Gajria
+>
+> This program is free software: you can redistribute it and/or modify
+> it under the terms of the GNU Affero General Public License as published
+> by the Free Software Foundation, either version 3 of the License, or
+> (at your option) any later version.
+> This program is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> GNU Affero General Public License for more details.
+>
+> You should have received a copy of the GNU Affero General Public License
+> along with this program.  If not, see <https://www.gnu.org/licenses/>.
