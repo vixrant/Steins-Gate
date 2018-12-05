@@ -4,7 +4,7 @@
 
 A dashboard for curating all the activities happening in the college.
 
-![MERN](https://img.shields.io/badge/Stack-MERN-red.svg)
+![MERN](https://img.shields.io/badge/stack-MERN-red.svg?logo=javascript&style=flat-square)
 [![HitCount](http://hits.dwyl.io/vixrant/kjsce-hackathon-18.svg)](http://hits.dwyl.io/vixrant/kjsce-hackathon-18)
 
 ![whiteboard](/docs/images/whiteboard.png) ![google assistant](/docs/images/google-assistant.png)
