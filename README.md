@@ -50,7 +50,7 @@ The project was made by one person in a 24 hour hackathon. You can read about my
 
 ## Contributing
 
-1. Fork it (<https://github.com/vixrant/kjsce-hackathon-2018/fork>)
+1. Fork it (<https://github.com/vixrant/kjsce-hackathon-18/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -m 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
@@ -67,7 +67,7 @@ The project was made by one person in a 24 hour hackathon. You can read about my
 APGLv3 LICENSE
 -----------
 
-> Copyright (C) 2018 Vikrant Gajria
+> Copyright (C) 2018, 2019 Vikrant Gajria
 >
 > This program is free software: you can redistribute it and/or modify
 > it under the terms of the GNU Affero General Public License as published
